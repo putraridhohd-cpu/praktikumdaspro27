@@ -1,0 +1,99 @@
+import java.util.Scanner;
+
+public class CM1_valent {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // ===== Data Mahasiswa =====
+        System.out.println("=== DATA MAHASISWA ===");
+        System.out.print("Nama Mahasiswa     : ");
+        String nama = input.nextLine();
+        System.out.print("Kelas              : ");
+        String kelas = input.nextLine();
+        System.out.print("NIM                : ");
+        String nim = input.nextLine();
+        System.out.print("Nomor Absen        : ");
+        int absen = input.nextInt();
+        System.out.println();
+
+        // ===== Mata Kuliah 1 =====
+        System.out.println("=== Mata Kuliah: Algoritma dan Pemrograman ===");
+        System.out.print("Nilai UTS   : ");
+        double uts1 = input.nextDouble();
+        System.out.print("Nilai UAS   : ");
+        double uas1 = input.nextDouble();
+        System.out.print("Nilai Tugas : ");
+        double tugas1 = input.nextDouble();
+
+        double nilaiAkhir1 = (uts1 * 0.3) + (uas1 * 0.4) + (tugas1 * 0.3);
+        String status1 = getStatusKelulusan(nilaiAkhir1);
+        String huruf1 = getNilaiHuruf(nilaiAkhir1);
+
+        System.out.println("\nNilai Akhir: " + nilaiAkhir1);
+        System.out.println("Nilai Huruf: " + huruf1);
+        System.out.println("Status     : " + status1);
+        System.out.println();
+
+        // ===== Mata Kuliah 2 =====
+        System.out.println("=== Mata Kuliah: Struktur Data ===");
+        System.out.print("Nilai UTS   : ");
+        double uts2 = input.nextDouble();
+        System.out.print("Nilai UAS   : ");
+        double uas2 = input.nextDouble();
+        System.out.print("Nilai Tugas : ");
+        double tugas2 = input.nextDouble();
+
+        double nilaiAkhir2 = (uts2 * 0.3) + (uas2 * 0.4) + (tugas2 * 0.3);
+        String status2 = getStatusKelulusan(nilaiAkhir2);
+        String huruf2 = getNilaiHuruf(nilaiAkhir2);
+
+        System.out.println("\nNilai Akhir: " + nilaiAkhir2);
+        System.out.println("Nilai Huruf: " + huruf2);
+        System.out.println("Status     : " + status2);
+        System.out.println();
+
+        // ===== Status Kelulusan Semester (Nested If) =====
+        System.out.println("=== HASIL KELULUSAN SEMESTER ===");
+
+        if (status1.equals("LULUS") && status2.equals("LULUS")) {
+            double rataRata = (nilaiAkhir1 + nilaiAkhir2) / 2;
+            System.out.println("Rata-rata Nilai Akhir: " + rataRata);
+
+            if (rataRata >= 70) {
+                System.out.println("Status Semester: LULUS");
+            } else {
+                System.out.println("Status Semester: TIDAK LULUS");
+            }
+        } else {
+            System.out.println("Status Semester: TIDAK LULUS (Salah satu mata kuliah tidak lulus)");
+        }
+
+        // ===== Cetak Identitas Mahasiswa =====
+        System.out.println("\n=== DATA HASIL MAHASISWA ===");
+        System.out.println("Nama  : " + nama);
+        System.out.println("Kelas : " + kelas);
+        System.out.println("NIM   : " + nim);
+        System.out.println("Absen : " + absen);
+
+        input.close();
+    }
+
+    // ===== Fungsi Menentukan Status Kelulusan per Mata Kuliah =====
+    public static String getStatusKelulusan(double nilaiAkhir) {
+        if (nilaiAkhir >= 60) {
+            return "LULUS";
+        } else {
+            return "TIDAK LULUS";
+        }
+    }
+
+    // ===== Fungsi Konversi Nilai ke Huruf =====
+    public static String getNilaiHuruf(double n) {
+        if (n >= 80 && n <= 100) return "A";
+        else if (n >= 73) return "B+";
+        else if (n >= 65) return "B";
+        else if (n >= 60) return "C+";
+        else if (n >= 50) return "D";
+        else return "E";
+    }
+}
