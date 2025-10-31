@@ -31,6 +31,7 @@ public class SiakadWhile27 {
            } else {
             System.out.println("nilai mahasiswa ke-" + (i + 1) + " adalah E");
            }
+           
            i++;
         }
     }
