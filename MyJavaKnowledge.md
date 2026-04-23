@@ -6,8 +6,7 @@ http://www.youtube.com/@KelasTerbuka
 saya akan membuat rangkuman nya aja berdasarkan apa yang saya pelajari dari channel itu
 
 ## EP 1 : apa itu java?
-
-
+java adalah salah satu bahasa program yang bisa memberi instruksi ke komputer,java itu bersifat object-oriented (berorientasi objek),apa itu object oriented?
 
 
 
